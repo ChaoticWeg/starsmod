@@ -1,0 +1,19 @@
+{
+  "name": "starsmod-v2",
+  "description": "/r/DallasStars mod- and user-facing scripts",
+  "version": "2.0.0",
+  "author": "ChaoticWeg <shawn@chaoticweg.cc> (https://chaoticweg.cc)",
+  "license": "GPL-3.0",
+  "scripts": {
+    "build": "yarn lint && yarn compile",
+    "compile": "npx tsc",
+    "lint": "npx tslint --project .",
+    "start": "node index.js",
+    "test": "yarn build && yarn start --test"
+  },
+  "devDependencies": {
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
+  },
+  "main": "./index.js"
+}
