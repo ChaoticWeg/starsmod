@@ -10,7 +10,7 @@
     "clean": "npx rimraf ./build",
     "coveralls": "npx coveralls < coverage/lcov.info",
     "lint": "npx tslint --project .",
-    "start": "node index.js",
+    "start": "node -r dotenv/config index.js",
     "test": "npx jest --silent",
     "test:ci": "yarn lint && yarn build:clean && yarn test --coverage",
     "test:run": "yarn lint && yarn build:clean && yarn start --test"
@@ -24,5 +24,8 @@
     "ts-jest": "^24.0.2",
     "tslint": "^5.16.0",
     "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "dotenv": "^7.0.0"
   }
 }

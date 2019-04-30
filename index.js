@@ -1,5 +1,3 @@
 // driver code
-// noinspection ES6ConvertRequireIntoImport
-// noinspection JSUnresolvedFunction
+// noinspection JSUnusedLocalSymbols
 const App = require("./build/App.js");
-App.start();
