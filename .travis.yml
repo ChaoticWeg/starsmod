@@ -8,9 +8,7 @@ cache:
 before_script:
   - export TZ=America/Chicago
 script:
-  - yarn lint
-  - yarn build:clean
-  - yarn test
+  - yarn test:ci
 after_success:
   - yarn run build:docs
   - wget wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
