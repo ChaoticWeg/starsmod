@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - 10
+cache:
+  yarn: true
+  directories:
+    - node_modules
+before_script:
+  - export TZ=America/Chicago
+script:
+  - yarn lint
+  - yarn build:clean
+  - yarn test
+after_success:
+  - yarn run build:docs
+  - wget wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh success $WEBHOOK_URL
+  - yarn run coveralls
+after_failure:
+  - wget wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh failure $WEBHOOK_URL

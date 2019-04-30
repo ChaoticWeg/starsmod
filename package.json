@@ -5,13 +5,23 @@
   "author": "ChaoticWeg <shawn@chaoticweg.cc> (https://chaoticweg.cc)",
   "license": "GPL-3.0",
   "scripts": {
-    "build": "yarn lint && yarn compile",
-    "compile": "npx tsc",
+    "build": "npx tsc",
+    "build:clean": "yarn clean && yarn build",
+    "clean": "npx rimraf ./build",
+    "coveralls": "npx coveralls < coverage/lcov.info",
     "lint": "npx tslint --project .",
     "start": "node index.js",
-    "test": "yarn build && yarn start --test"
+    "test": "npx jest --silent",
+    "test:ci": "yarn lint && yarn build:clean && yarn test --coverage",
+    "test:run": "yarn lint && yarn build:clean && yarn start --test"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "@types/node": "^11.13.8",
+    "coveralls": "^3.0.3",
+    "jest": "^24.7.1",
+    "rimraf": "^2.6.3",
+    "ts-jest": "^24.0.2",
     "tslint": "^5.16.0",
     "typescript": "^3.4.5"
   }
